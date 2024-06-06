@@ -1,13 +1,14 @@
 import google.generativeai as genai
 
-genai.configure(api_key="your gemini api key here")
+#Get Gemini API key here: aistudio.google.com
+genai.configure(api_key="GEMINI_API_KEY")
 
 # Set up the model
 generation_config = {
-  "temperature": 1,
+  "temperature": 0.9,
   "top_p": 0.95,
   "top_k": 64,
-  "max_output_tokens": 8192,
+  "max_output_tokens": 1,048,576,
 }
 
 safety_settings = [
