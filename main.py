@@ -1,14 +1,15 @@
 import google.generativeai as genai
+import os
 
-#Get Gemini API key here: aistudio.google.com
-genai.configure(api_key="GEMINI_API_KEY")
+# Get API key from https://aistudio.google.com/
+genai.configure(api_key=os.environ['GENAI_API'])
 
 # Set up the model
 generation_config = {
-  "temperature": 0.9,
+  "temperature": 1,
   "top_p": 0.95,
   "top_k": 64,
-  "max_output_tokens": 1,048,576,
+  "max_output_tokens": 1048576,
 }
 
 safety_settings = [
@@ -45,4 +46,4 @@ def generate_readme(prompt):
   return response.text
 
 # Example usage
-print(generate_readme("Write a README file for this code......."))
+print(generate_readme("""Write a README file for this code..."""))
